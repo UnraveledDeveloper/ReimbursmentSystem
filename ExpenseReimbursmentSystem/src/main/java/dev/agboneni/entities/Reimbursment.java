@@ -2,16 +2,28 @@ package dev.agboneni.entities;
 
 public class Reimbursment {
 	private double amount;
-	private int empid;
-	private int managerid;
+
+	private int empId;
+	private int managerId;
+
+	private int empId;
+	private int managerId;
+
 	private String reason;
 	private String status;
 	
 	
-	public Reimbursment(double amount, int empid, int managerid, String reason, String status) {
+
+	public Reimbursment(double amount, int empId, int managerId, String reason, String status) {
 		this.amount = amount;
-		this.empid = empid;
-		this.managerid = managerid;
+		this.empId = empId;
+		this.managerId = managerId;
+
+	public Reimbursment(double amount, int empId, int managerId, String reason, String status) {
+		this.amount = amount;
+		this.empId = empId;
+		this.managerId = managerId;
+
 		this.reason = reason;
 		this.status = status;
 	}
@@ -21,17 +33,31 @@ public class Reimbursment {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public int getEmpid() {
-		return empid;
+
+	public int getEmpId() {
+		return empId;
 	}
-	public void setEmpid(int empid) {
-		this.empid = empid;
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
-	public int getManagerid() {
-		return managerid;
+	public int getManagerId() {
+		return managerId;
 	}
-	public void setManagerid(int managerid) {
-		this.managerid = managerid;
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+
+	public int getEmpId() {
+		return empId;
+	}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+	public int getManagerId() {
+		return managerId;
+	}
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+
 	}
 	public String getReason() {
 		return reason;
@@ -47,8 +73,15 @@ public class Reimbursment {
 	}
 	@Override
 	public String toString() {
-		return "Reimbursment [amount=" + amount + ", empid=" + empid + ", managerid=" + managerid + ", reason=" + reason
+
+		return "Reimbursment [amount=" + amount + ", empId=" + empId + ", managerId=" + managerId + ", reason=" + reason
 				+ ", status=" + status + "]";
 	}
+
+
+		return "Reimbursment [amount=" + amount + ", empId=" + empId + ", managerId=" + managerId + ", reason=" + reason
+				+ ", status=" + status + "]";
+	}
+
 	
 }
