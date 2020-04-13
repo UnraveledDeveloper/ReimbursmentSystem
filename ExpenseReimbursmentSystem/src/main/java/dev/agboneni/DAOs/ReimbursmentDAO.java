@@ -9,8 +9,10 @@ public interface ReimbursmentDAO {
 	Reimbursment createReimbursment(Reimbursment reburs);
 	
 	//should reimbursment class get own id?
+
 	List<Reimbursment> getReimbursmentByEmpId(int id);
 	List<Reimbursment> getAllReimbursments();
+
 	List<Reimbursment> getReimbursmentByStatus(String status);
 	
 	Reimbursment updaReimbursment(Reimbursment reburs);
