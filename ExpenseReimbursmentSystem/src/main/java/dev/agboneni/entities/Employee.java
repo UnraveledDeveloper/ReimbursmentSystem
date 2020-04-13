@@ -3,12 +3,11 @@ package dev.agboneni.entities;
 public class Employee {
 	
 	private int empId;
-
 	private int managerId;
-
 	private String name;
 	private String username;
 	private String password;
+	
 	
 
 	public Employee(int empId, int managerId, String name, String username, String password) {
@@ -52,8 +51,6 @@ public class Employee {
 	public String toString() {
 		return "Employee [empId=" + empId + ", managerId=" + managerId + ", name=" + name + ", username=" + username
 				+ ", password=" + password + "]";
-
-
 	}
 	
 
