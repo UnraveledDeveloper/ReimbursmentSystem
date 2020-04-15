@@ -25,6 +25,7 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 			ps.execute();
 			
 			ResultSet rs = ps.getGeneratedKeys();
+			rs.next();
 			emp.setEmpId(rs.getInt("Employee_Id"));
 			return emp;
 			
@@ -40,6 +41,12 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 	public Employee getEmployeeById(int id) {
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "SELECT * FROM Employee WHERE Employee_Id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			Employee emp = new Employee();
+			
 			
 		} catch (SQLException e) {
 			
