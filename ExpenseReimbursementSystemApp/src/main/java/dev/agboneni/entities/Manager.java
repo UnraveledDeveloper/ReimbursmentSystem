@@ -7,6 +7,10 @@ public class Manager {
 	private String password;
 	
 	
+	public Manager() {
+		super();
+		
+	}
 	public Manager(int managerId, String name, String username, String password) {
 		this.managerId = managerId;
 		this.name = name;
