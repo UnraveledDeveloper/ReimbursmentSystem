@@ -45,6 +45,7 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
+
 			rs.next();
 			Employee emp = new Employee();
 			emp.setEmpId(rs.getInt("Employee_Id"));
@@ -53,6 +54,7 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 			emp.setPassword(rs.getString("Password"));
 			emp.setManagerId(rs.getInt("Manager_Id"));
 			return emp;
+
 			
 		} catch (SQLException e) {
 			
