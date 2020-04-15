@@ -9,7 +9,7 @@ public interface EmployeeDAO {
 	Employee createEmployee(Employee emp);
 
 	Employee getEmployeeById(int id);
-	Employee getEmployeeByName(String Name);
+	Employee getEmployeeByName(String name);
 	List<Employee> getAllEmployees();
 	List<Employee> getAllEmployeesByMgrId(int mgrId);
 
