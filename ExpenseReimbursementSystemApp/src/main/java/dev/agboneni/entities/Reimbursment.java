@@ -7,6 +7,10 @@ public class Reimbursment {
 	private String status;
 	
 	
+	public Reimbursment() {
+		super();
+		
+	}
 	public Reimbursment(double amount, int empId, String reason, String status) {
 		this.amount = amount;
 		this.empId = empId;
