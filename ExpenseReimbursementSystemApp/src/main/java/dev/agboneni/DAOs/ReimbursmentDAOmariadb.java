@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 import dev.agboneni.entities.Reimbursment;
@@ -34,6 +36,7 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 
 	@Override
 	public List<Reimbursment> getReimbursmentByEmpId(int id) {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "SELECT * FROM Reimbursment WHERE Employee_Id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -54,11 +57,13 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 			e.printStackTrace();
 		}
 
+
 		return null;
 	}
 
 	@Override
 	public List<Reimbursment> getAllReimbursments() {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "SELECT * FROM Reimbursment";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -78,12 +83,14 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 			e.printStackTrace();
 		}
 
+
 		
 		return null;
 	}
 
 	@Override
 	public List<Reimbursment> getReimbursmentByStatus(String status) {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "SELECT * FROM Reimbursment WHERE Status = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -103,6 +110,7 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 			
 			e.printStackTrace();
 		}
+
 
 		return null;
 	}

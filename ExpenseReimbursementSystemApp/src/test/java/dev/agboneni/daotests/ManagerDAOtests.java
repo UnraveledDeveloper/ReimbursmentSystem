@@ -2,8 +2,10 @@ package dev.agboneni.daotests;
 
 import static org.junit.Assert.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,7 @@ public class ManagerDAOtests {
 		mdao.createManager(m);
 		System.out.println(m);
 	}
+
 	
 	@Test
 	public void getManagerTest() {
@@ -41,5 +44,6 @@ public class ManagerDAOtests {
 		//System.out.println(name);
 		
 	}
+
 
 }

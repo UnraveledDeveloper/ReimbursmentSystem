@@ -2,7 +2,9 @@ package dev.agboneni.daotests;
 
 import static org.junit.Assert.*;
 
+
 import java.util.List;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,8 +29,10 @@ public class ReimbursmentDAOtests {
 	public void createReimbursmenttest() {
 		Employee e = edao.getEmployeeById(5);
 		Reimbursment r = new Reimbursment();
+
 		r.setEmpId(4);
 		r.setAmount(1500);
+
 		r.setReason("For traveling");
 		r.setStatus("pending");
 		
@@ -36,6 +40,7 @@ public class ReimbursmentDAOtests {
 		System.out.println(r);
 		
 	}
+
 	
 	@Test 
 	public void getReimbursmenttests() {
@@ -46,5 +51,6 @@ public class ReimbursmentDAOtests {
 			System.out.println(reburs);
 		}
 	}
+
 
 }
