@@ -2,6 +2,11 @@ package dev.agboneni.daotests;
 
 import static org.junit.Assert.*;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,5 +31,19 @@ public class ManagerDAOtests {
 		mdao.createManager(m);
 		System.out.println(m);
 	}
+
+	
+	@Test
+	public void getManagerTest() {
+		Manager m = mdao.getManagerById(2);
+		Manager name = mdao.getManagerByName("Maya");
+		List<Manager> managers = mdao.getAllManagers();
+		for(Manager m2 : managers) {
+			System.out.println(m2);
+		}
+		//System.out.println(name);
+		
+	}
+
 
 }

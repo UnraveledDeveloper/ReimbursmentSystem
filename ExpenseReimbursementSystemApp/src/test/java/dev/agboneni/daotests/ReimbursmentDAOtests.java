@@ -2,6 +2,10 @@ package dev.agboneni.daotests;
 
 import static org.junit.Assert.*;
 
+
+import java.util.List;
+
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,8 +29,10 @@ public class ReimbursmentDAOtests {
 	public void createReimbursmenttest() {
 		Employee e = edao.getEmployeeById(5);
 		Reimbursment r = new Reimbursment();
-		r.setEmpId(6);
-		r.setAmount(500);
+
+		r.setEmpId(4);
+		r.setAmount(1500);
+
 		r.setReason("For traveling");
 		r.setStatus("pending");
 		
@@ -34,5 +40,17 @@ public class ReimbursmentDAOtests {
 		System.out.println(r);
 		
 	}
+
+	
+	@Test 
+	public void getReimbursmenttests() {
+		List<Reimbursment> r = rdao.getReimbursmentByEmpId(4);
+		List<Reimbursment> rall = rdao.getAllReimbursments();
+		List<Reimbursment> rstatus = rdao.getReimbursmentByStatus("pending");
+		for(Reimbursment reburs : rall) {
+			System.out.println(reburs);
+		}
+	}
+
 
 }
