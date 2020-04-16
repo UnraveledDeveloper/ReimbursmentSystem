@@ -20,9 +20,9 @@ public class EmployeeDAOtests {
 	@Test
 	public void createEmployeetest() {
 		Employee test = new Employee();
-		test.setName("Max");
-		test.setUsername("maxingtest");
-		test.setPassword("maxtestpass1");
+		test.setName("Rex");
+		test.setUsername("rextest");
+		test.setPassword("rextestpass1");
 		test.setManagerId(1);
 		edao.createEmployee(test);
 		System.out.println(test);
@@ -39,5 +39,12 @@ public class EmployeeDAOtests {
 		System.out.println(idFound);
 		System.out.println(name);
 	}
+	
+	@Test
+	public void updateDeleteEmployeeTest() {
+		
+	}
+	
+	
 
 }
