@@ -2,10 +2,8 @@ package dev.agboneni.daotests;
 
 import static org.junit.Assert.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,13 +23,12 @@ public class ManagerDAOtests {
 	public void createManagertest() {
 	
 		Manager m = new Manager();
-		m.setName("Maya");
-		m.setUsername("mayamagrtest");
-		m.setPassword("magrtestpass2");
+		m.setName("Jen");
+		m.setUsername("jentest");
+		m.setPassword("jentestpass");
 		mdao.createManager(m);
 		System.out.println(m);
 	}
-
 	
 	@Test
 	public void getManagerTest() {
@@ -44,6 +41,14 @@ public class ManagerDAOtests {
 		//System.out.println(name);
 		
 	}
-
+	
+	@Test
+	public void updateDeleteManager() {
+		Manager m = mdao.getManagerById(2);
+		m.setUsername("mayatest");
+		mdao.updateManager(m);
+		System.out.println(m);
+		
+	}
 
 }
