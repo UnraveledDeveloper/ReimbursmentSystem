@@ -51,8 +51,26 @@ public class ReimbursmentDAOtests {
 	public void updateReimbursmenttest() {
 		Reimbursment r = rdao.getReimbursmentById(1);
 		r.setStatus("approved");
-		rdao.updaReimbursment(r);
+
+    	rdao.updaReimbursment(r);
 		System.out.println(r);
+		
+		Reimbursment r2 = rdao.getReimbursmentById(2);
+		rdao.deleteReimbursment(r2);
+		
+	}
+	
+	@Test
+	public void deleteReimbursmenttest() {
+		Reimbursment r2 = rdao.getReimbursmentById(2);
+		rdao.deleteReimbursment(r2);
+		if(r2 == null) {
+			System.out.println("Yeetus deletus");
+		}
+		else {
+			System.out.println("Still here sucker");
+		}
+
 	}
 
 }

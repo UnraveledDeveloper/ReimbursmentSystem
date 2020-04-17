@@ -23,9 +23,11 @@ public class ManagerDAOtests {
 	public void createManagertest() {
 	
 		Manager m = new Manager();
-		m.setName("Jen");
-		m.setUsername("jentest");
-		m.setPassword("jentestpass");
+
+		m.setName("Mack");
+		m.setUsername("mactest");
+		m.setPassword("mactestpass");
+
 		mdao.createManager(m);
 		System.out.println(m);
 	}
@@ -43,12 +45,23 @@ public class ManagerDAOtests {
 	}
 	
 	@Test
-	public void updateDeleteManager() {
+
+	public void updateManagertest() {
 		Manager m = mdao.getManagerById(2);
-		m.setUsername("mayatest");
+		m.setUsername("ricktest");
+
+
 		mdao.updateManager(m);
 		System.out.println(m);
 		
 	}
+
+	@Test
+	public void deleteManagertest() {
+		Manager m = mdao.getManagerById(4);
+		mdao.deleteManager(m);
+		System.out.println(m);
+	}
+
 
 }

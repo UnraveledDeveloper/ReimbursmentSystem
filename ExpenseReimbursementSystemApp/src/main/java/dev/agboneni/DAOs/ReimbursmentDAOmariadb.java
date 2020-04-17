@@ -139,13 +139,39 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 
 	@Override
 	public Reimbursment updaReimbursment(Reimbursment reburs) {
-		
+
+		try(Connection conn = ConnectionUtil.createConnection()){
+			String sql = "UPDATE Reimbursment SET Employee_Id = ?, Amount = ?, Reason = ?, Status = ? WHERE Reimbursment_Id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, reburs.getEmpId());
+			ps.setDouble(2, reburs.getAmount());
+			ps.setString(3, reburs.getReason());
+			ps.setString(4, reburs.getStatus());
+			ps.setInt(5, reburs.getRebursId());
+			ps.execute();
+			return reburs;
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 
 	@Override
 	public boolean deleteReimbursment(Reimbursment reburs) {
-		
+
+		try(Connection conn = ConnectionUtil.createConnection()){
+			String sql = "DELETE FROM Reimbursment WHERE Reimbursment_Id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, reburs.getRebursId());
+			boolean success = ps.execute();
+			return success;
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 
