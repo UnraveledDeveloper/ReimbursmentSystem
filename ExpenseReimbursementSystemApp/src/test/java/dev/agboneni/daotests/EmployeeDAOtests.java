@@ -20,10 +20,12 @@ public class EmployeeDAOtests {
 	@Test
 	public void createEmployeetest() {
 		Employee test = new Employee();
+
 		test.setName("Marl");
 		test.setUsername("marltest");
 		test.setPassword("marltestpass1");
 		test.setManagerId(1);
+
 		edao.createEmployee(test);
 		System.out.println(test);
 	}
@@ -41,20 +43,23 @@ public class EmployeeDAOtests {
 	}
 	
 	@Test
+
 	public void updateEmployeeTest() {
+
+
 		Employee update = edao.getEmployeeById(5);
 		update.setUsername("maxtest");
 		edao.updateEmployee(update);
 		
 		System.out.println(update);
 	}
-	
+
 	@Test
 	public void deleteEmployeetest() {
 		Employee terminate = edao.getEmployeeById(6);
 		edao.deleteEmployee(terminate);
 	}
-	
+
 	
 
 }

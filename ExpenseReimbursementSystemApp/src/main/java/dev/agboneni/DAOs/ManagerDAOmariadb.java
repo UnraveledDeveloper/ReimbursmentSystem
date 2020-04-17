@@ -106,6 +106,7 @@ public class ManagerDAOmariadb implements ManagerDAO{
 	@Override
 	public Manager updateManager(Manager magr) {
 		try(Connection conn = ConnectionUtil.createConnection()){
+
 			String sql = "UPDATE Manager SET Name = ?, Username = ?, Password = ? WHERE Manager_Id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, magr.getName());
@@ -115,6 +116,7 @@ public class ManagerDAOmariadb implements ManagerDAO{
 			ps.execute();
 			
 			return magr;
+
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -125,6 +127,7 @@ public class ManagerDAOmariadb implements ManagerDAO{
 
 	@Override
 	public boolean deleteManager(Manager magr) {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "DELETE FROM Manager WHERE Manager_Id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -135,6 +138,7 @@ public class ManagerDAOmariadb implements ManagerDAO{
 			
 			e.printStackTrace();
 		}
+
 		return false;
 	}
 

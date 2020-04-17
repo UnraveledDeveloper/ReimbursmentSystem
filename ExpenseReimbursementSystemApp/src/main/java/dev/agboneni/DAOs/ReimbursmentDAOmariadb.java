@@ -139,6 +139,7 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 
 	@Override
 	public Reimbursment updaReimbursment(Reimbursment reburs) {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "UPDATE Reimbursment SET Employee_Id = ?, Amount = ?, Reason = ?, Status = ? WHERE Reimbursment_Id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -153,11 +154,13 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 			
 			e.printStackTrace();
 		}
+
 		return null;
 	}
 
 	@Override
 	public boolean deleteReimbursment(Reimbursment reburs) {
+
 		try(Connection conn = ConnectionUtil.createConnection()){
 			String sql = "DELETE FROM Reimbursment WHERE Reimbursment_Id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -168,6 +171,7 @@ public class ReimbursmentDAOmariadb implements ReimbursmentDAO{
 			
 			e.printStackTrace();
 		}
+
 		return false;
 	}
 

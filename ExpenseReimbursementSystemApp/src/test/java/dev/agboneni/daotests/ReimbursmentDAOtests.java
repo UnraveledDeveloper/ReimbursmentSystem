@@ -51,6 +51,7 @@ public class ReimbursmentDAOtests {
 	public void updateReimbursmenttest() {
 		Reimbursment r = rdao.getReimbursmentById(1);
 		r.setStatus("approved");
+
     	rdao.updaReimbursment(r);
 		System.out.println(r);
 		
@@ -69,6 +70,7 @@ public class ReimbursmentDAOtests {
 		else {
 			System.out.println("Still here sucker");
 		}
+
 	}
 
 }
