@@ -143,6 +143,7 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 			ps.setString(3, emp.getPassword());
 			ps.setInt(4, emp.getManagerId());
 			ps.setInt(5, emp.getEmpId());
+			ps.execute();
 			
 			return emp;
 		} catch (SQLException e) {

@@ -1,8 +1,9 @@
 package dev.agboneni.entities;
 
 public class Reimbursment {
-	private double amount;
+	private int rebursId;
 	private int empId;
+	private double amount;
 	private String reason;
 	private String status;
 	
@@ -11,23 +12,34 @@ public class Reimbursment {
 		super();
 		
 	}
-	public Reimbursment(double amount, int empId, String reason, String status) {
-		this.amount = amount;
+
+
+	public Reimbursment(int rebursId, int empId, double amount, String reason, String status) {
+		this.rebursId = rebursId;
 		this.empId = empId;
+		this.amount = amount;
 		this.reason = reason;
 		this.status = status;
 	}
-	public double getAmount() {
-		return amount;
+
+
+	public int getRebursId() {
+		return rebursId;
 	}
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setRebursId(int rebursId) {
+		this.rebursId = rebursId;
 	}
 	public int getEmpId() {
 		return empId;
 	}
 	public void setEmpId(int empId) {
 		this.empId = empId;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 	public String getReason() {
 		return reason;
@@ -41,11 +53,15 @@ public class Reimbursment {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Reimbursment [amount=" + amount + ", empId=" + empId + ", reason=" + reason + ", status=" + status
-				+ "]";
+		return "Reimbursment [rebursId=" + rebursId + ", empId=" + empId + ", amount=" + amount + ", reason=" + reason
+				+ ", status=" + status + "]";
 	}
+
+	
 
 	
 }

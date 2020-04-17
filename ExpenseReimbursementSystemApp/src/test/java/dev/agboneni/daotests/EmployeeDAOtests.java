@@ -20,10 +20,10 @@ public class EmployeeDAOtests {
 	@Test
 	public void createEmployeetest() {
 		Employee test = new Employee();
-		test.setName("Rex");
-		test.setUsername("rextest");
-		test.setPassword("rextestpass1");
-		test.setManagerId(1);
+		test.setName("Marlene");
+		test.setUsername("marltest");
+		test.setPassword("marltestpass1");
+		test.setManagerId(3);
 		edao.createEmployee(test);
 		System.out.println(test);
 	}
@@ -31,7 +31,6 @@ public class EmployeeDAOtests {
 	@Test
 	public void getEmployeetest() {
 		List<Employee> employees = edao.getAllEmployees();
-
 		//Employee idFound = edao.getEmployeeById(3);
 		//Employee name = edao.getEmployeeByName("Manning");
 		for(Employee e : employees) {
@@ -39,12 +38,15 @@ public class EmployeeDAOtests {
 		}
 		//System.out.println(idFound);
 		//System.out.println(name);
-
 	}
 	
 	@Test
 	public void updateDeleteEmployeeTest() {
+		Employee update = edao.getEmployeeById(5);
+		update.setUsername("maxtest");
+		edao.updateEmployee(update);
 		
+		System.out.println(update);
 	}
 	
 	
