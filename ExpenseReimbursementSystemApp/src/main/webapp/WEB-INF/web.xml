@@ -12,6 +12,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>DispatcherServlet</servlet-name>
-  	<url-pattern>/DispatcherServlet</url-pattern>
+  	<url-pattern>/reburs/*</url-pattern>
   </servlet-mapping>
 </web-app>
