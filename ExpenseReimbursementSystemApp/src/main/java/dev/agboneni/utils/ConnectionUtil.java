@@ -17,7 +17,8 @@ public class ConnectionUtil {
 		Properties props = new Properties();
 		FileInputStream in;
 		try {
-			in = new FileInputStream("src/main/resources/connection.properties");
+			Class.forName("org.mariadb.jdbc.Driver");
+			in = new FileInputStream(ConnectionUtil.class.getClassLoader().getResource("connection.properties").getFile());
 			props.load(in);
 			String details = props.getProperty("condetails");
 			Connection conn = DriverManager.getConnection(details);
@@ -29,6 +30,10 @@ public class ConnectionUtil {
 			e.printStackTrace();
 			return null;
 		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (ClassNotFoundException e) {
+			
 			e.printStackTrace();
 			return null;
 		}

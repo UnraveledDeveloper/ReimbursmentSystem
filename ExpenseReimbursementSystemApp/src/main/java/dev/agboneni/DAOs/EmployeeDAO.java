@@ -16,4 +16,6 @@ public interface EmployeeDAO {
 	Employee updateEmployee(Employee emp);
 
 	boolean deleteEmployee(Employee emp);
+	
+	Employee validateLogin(String username, String password);
 }

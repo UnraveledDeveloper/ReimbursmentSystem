@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>dev.agboneni.servlets.DispatcherServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>dev.agboneni.servlets.LoginServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>DispatcherServlet</servlet-name>
   	<url-pattern>/reburs/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>

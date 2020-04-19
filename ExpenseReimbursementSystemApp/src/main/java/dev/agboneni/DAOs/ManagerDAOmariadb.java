@@ -138,4 +138,28 @@ public class ManagerDAOmariadb implements ManagerDAO{
 		return false;
 	}
 
+	@Override
+	public Manager validateLogin(String username, String password) {
+		try(Connection conn = ConnectionUtil.createConnection()){
+			String sql = "SELECT FROM Manager WHERE Username = ? AND Password = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2,password);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				Manager m = new Manager();
+				m.setManagerId(rs.getInt("Manager_Id"));
+				m.setName(rs.getString("Name"));
+				m.setUsername(rs.getString("Username"));
+				m.setPassword(rs.getString("Password")); 
+				return m;
+				
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

@@ -16,4 +16,6 @@ public interface ManagerDAO {
 	Manager updateManager(Manager magr);
 	
 	boolean deleteManager(Manager magr);
+	
+	Manager validateLogin(String username, String password);
 }
