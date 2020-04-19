@@ -55,6 +55,15 @@ public class EmployeeDAOtests {
 		edao.deleteEmployee(terminate);
 	}
 	
+	@Test
+	public void validateLogintest() {
+		Employee test = edao.getEmployeeById(2);
+		
+		Employee login = edao.validateLogin("rextest", "rextestpass1");
+		//System.out.println(test);
+		System.out.println(login);
+	}
+	
 	
 
 }

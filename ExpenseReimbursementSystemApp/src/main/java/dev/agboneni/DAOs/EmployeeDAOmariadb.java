@@ -169,4 +169,30 @@ public class EmployeeDAOmariadb implements EmployeeDAO{
 		return false;
 	}
 
+	@Override
+	public Employee validateLogin(String username, String password) {
+		try(Connection conn = ConnectionUtil.createConnection()){
+			String sql = "SELECT * FROM Employee WHERE Username = ? AND Password = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			Employee emp = new Employee();
+			if(rs.next()) {
+				
+				emp.setEmpId(rs.getInt("Employee_Id"));
+				emp.setName(rs.getString("Name"));
+				emp.setUsername(rs.getString("Username"));
+				emp.setPassword(rs.getString("Password"));
+				emp.setManagerId(rs.getInt("Manager_Id"));
+				
+			}
+			return emp;
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
