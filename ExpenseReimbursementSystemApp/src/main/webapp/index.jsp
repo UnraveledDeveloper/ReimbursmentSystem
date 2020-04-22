@@ -5,9 +5,10 @@
 <br><br>
 <input type="password" id="password" placeholder="Password">
 <br>
-<button onclick="login()">Login Test</button>
+<button id="loginbtn" >Login Test</button>
 </body>
 <script>
+        document.getElementById("loginbtn").addEventListener("click",login)
 	async function login(){
         let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
