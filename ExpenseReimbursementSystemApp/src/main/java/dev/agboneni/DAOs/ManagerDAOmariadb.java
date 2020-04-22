@@ -141,7 +141,7 @@ public class ManagerDAOmariadb implements ManagerDAO{
 	@Override
 	public Manager validateLogin(String username, String password) {
 		try(Connection conn = ConnectionUtil.createConnection()){
-			String sql = "SELECT FROM Manager WHERE Username = ? AND Password = ?";
+			String sql = "SELECT * FROM Manager WHERE Username = ? AND Password = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			ps.setString(2,password);
