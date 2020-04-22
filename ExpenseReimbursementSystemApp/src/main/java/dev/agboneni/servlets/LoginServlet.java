@@ -32,19 +32,23 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user = request.getParameter("username");
 		String pass = request.getParameter("Password");
-		
-			try {
-				Employee emp = edao.validateLogin(user, pass);
-				if(emp != null) {
-					HttpSession sess = request.getSession();
-					sess.setAttribute("username", user);
-					response.sendRedirect("http://localhost:8080/ExpenseReimbursementSystemApp/employeepage.html");
+	
+			
+				try {
+					Employee emp = edao.validateLogin(user, pass);
+					if(emp != null) {
+						HttpSession sess = request.getSession();
+						sess.setAttribute("username", user);
+						response.sendRedirect("http://localhost:8080/ExpenseReimbursementSystemApp/employeepage.html");
+					}
+					else {
+						response.getWriter().append("Invalid Username and Password");
+					}
+				} catch (IOException e) {
+					
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-		
+			
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

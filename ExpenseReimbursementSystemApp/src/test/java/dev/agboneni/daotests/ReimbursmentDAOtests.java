@@ -39,10 +39,10 @@ public class ReimbursmentDAOtests {
 	
 	@Test 
 	public void getReimbursmenttests() {
-		List<Reimbursment> r = rdao.getReimbursmentByEmpId(4);
+		List<Reimbursment> r = rdao.getReimbursmentByEmpId(2);
 		List<Reimbursment> rall = rdao.getAllReimbursments();
 		List<Reimbursment> rstatus = rdao.getReimbursmentByStatus("pending");
-		for(Reimbursment reburs : rall) {
+		for(Reimbursment reburs : r) {
 			System.out.println(reburs);
 		}
 	}
