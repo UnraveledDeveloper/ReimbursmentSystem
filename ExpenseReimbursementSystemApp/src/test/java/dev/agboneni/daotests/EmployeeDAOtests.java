@@ -30,14 +30,14 @@ public class EmployeeDAOtests {
 	
 	@Test
 	public void getEmployeetest() {
-		List<Employee> employees = edao.getAllEmployees();
+		//List<Employee> employees = edao.getAllEmployees();
 		//Employee idFound = edao.getEmployeeById(3);
-		//Employee name = edao.getEmployeeByName("Manning");
-		for(Employee e : employees) {
-			System.out.println(e);
-		}
+		Employee name = edao.getEmployeeByName("Rex");
+//		for(Employee e : employees) {
+//			System.out.println(e);
+//		}
 		//System.out.println(idFound);
-		//System.out.println(name);
+		System.out.println(name);
 	}
 	
 	@Test
