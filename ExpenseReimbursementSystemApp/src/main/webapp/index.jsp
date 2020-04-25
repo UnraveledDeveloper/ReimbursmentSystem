@@ -1,19 +1,25 @@
 <html>
 <body>
 <h2>Welcome</h2>
-<input type="text" id="username" placeholder="Username">
+<form action="LoginServlet">
+<input type="text" id="username" name="username" placeholder="Username">
 <br><br>
-<input type="password" id="password" placeholder="Password">
-<br>
+<input type="password" id="password" name="password" placeholder="Password">
 <button id="loginbtn" >Login Test</button>
+</form>
+<br>
+<button onclick="moveToEmpLogin()" id="employeebtn">Employee Login</button>
+<button onclick="moveToMgrLogin()" id="managerbtn">Manager Login</button>
+
 </body>
 <script>
-        document.getElementById("loginbtn").addEventListener("click",login)
-	async function login(){
-        let username = document.getElementById("username").value;
-        let password = document.getElementById("password").value;
-        let httpResponse = await fetch(`http://localhost:8080/ExpenseReimbursementSystemApp/LoginServlet?username=${username}&password=${password}`)
-        //window.location.href = "http://localhost:8080/ExpenseReimbursementSystemApp/employeepage.html";
+   function moveToEmpLogin(){
+       window.location.replace("http://localhost:8080/ExpenseReimbursementSystemApp/employeelogin.html")
+   }
+
+   function moveToMgrLogin(){
+       window.location.replace("http://localhost:8080/ExpenseReimbursementSystemApp/managerlogin.html")
    }
 </script>
 </html>
+         

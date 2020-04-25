@@ -57,7 +57,7 @@ public class EmployeeDAOtests {
 	
 	@Test
 	public void validateLogintest() {
-		Employee test = edao.getEmployeeById(2);
+		//Employee test = edao.getEmployeeById(2);
 		
 		Employee login = edao.validateLogin("rextest", "rextestpass1");
 		//System.out.println(test);
