@@ -5,8 +5,16 @@
 <title>Manager Page</title>
 </head>
 <body>
-    <h2 id="mgrwelcome">Welcome Manager</h2>
+    <h2 id="mgrwelcome"></h2>
     <button id="viewbtn">View Requests</button>
 </body>
-<script></script>
+<script>
+     async function managerWelcome(){
+        let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/ManagerServlet")
+        let body = await httpResponse.text()
+
+        document.getElementById("mgrwelcome").innerHTML = body
+    }
+    managerWelcome()
+</script>
 </html>

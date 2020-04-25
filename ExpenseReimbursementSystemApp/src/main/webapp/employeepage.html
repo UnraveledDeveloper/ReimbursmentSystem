@@ -6,13 +6,17 @@
 
 </head>
 <body>
-    <h2 id="empwelcome">Welcome Employee</h2>
+    <h2 id="empwelcome"></h2>
     <button id="sendbtn">New Request</button>
     <button id="viewbtn">View Sent Requests</button>
 </body>
 <script>
-    async function getEmployeeRequests(){
-        let httpResponse = await fetch()
+    async function empWelcome(){
+        let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/EmployeeServlet")
+        let body = await httpResponse.text()
+
+        document.getElementById("empwelcome").innerHTML = body
     }
+    empWelcome()
 </script>
 </html>

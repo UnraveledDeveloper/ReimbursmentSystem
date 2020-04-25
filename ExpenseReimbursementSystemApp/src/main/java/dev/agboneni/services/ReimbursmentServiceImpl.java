@@ -13,7 +13,6 @@ public class ReimbursmentServiceImpl implements ReimbursmentService{
 		request.setEmpId(e.getEmpId());
 		request.setStatus("Submitted");
 		rdao.createReimbursment(request);
-		
 		return request;
 	}
 

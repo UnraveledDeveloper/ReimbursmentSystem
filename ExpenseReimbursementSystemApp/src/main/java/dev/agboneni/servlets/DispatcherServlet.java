@@ -6,32 +6,52 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dev.agboneni.controllers.ReimbursementController;
+
 /**
  * Servlet implementation class DispatcherServlet
  */
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
+    
     public DispatcherServlet() {
-        // TODO Auto-generated constructor stub
+       
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
+    ReimbursementController rcontroller = new ReimbursementController();
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String uri = request.getRequestURI();
+		switch(uri) {
+		case "/ExpenseReimbursementSystemApp/reburs/submit":
+			rcontroller.sumbitRequest(request, response);
+			break;
+		case "/ExpenseReimbursementSystemApp/reburs/approve":
+			rcontroller.approveRequest(request, response);
+			break;
+		case "/ExpenseReimbursementSystemApp/reburs/deny":
+			rcontroller.denyRequest(request, response);
+			break;
+		case "/ExpenseReimbursementSystemApp/reburs/view":
+			
+			break;
+		case "":
+			
+			break;
+		case "/ExpenseReimbursementSystemApp/reburs/m":
+			
+			break;
+		default: 
+			response.getWriter().append("Your request uri did not match anything");
+			break;
+		}
 		
-		response.getWriter().append("Welcome");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
