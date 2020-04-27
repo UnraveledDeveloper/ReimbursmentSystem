@@ -3,12 +3,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employee Page</title>
-
+<link rel="stylesheet" href="CSS/employeepage.css">
 </head>
 <body>
+    <div class="greeting">
     <h2 id="empwelcome"></h2>
-    <button id="sendbtn">New Request</button>
-    <button id="viewbtn">View Sent Requests</button>
+    <a style="color: firebrick;" href="http://localhost:8080/ExpenseReimbursementSystemApp/">Logout</a>
+    </div>
+    <br>
+    <div class="request">
+    <label style="color: firebrick;" for="reason">Reason:</label>
+    <input type="text" name="" id="reason">
+    <label  style="color: firebrick;" for="amount">Amount:</label>
+    <input type="text" id="amount">
+    </div>
+    <!-- <input type="text" id="empid"> -->
+    <br>
+    <div class="buttons">
+    <button onclick="submit()" id="sendbtn">New Request</button>
+   
+    <button onclick="viewRequests()" id="viewbtn">View Sent Requests</button>
+    </div>
+    <div id="show"><table id="empRequests"><thead><tr><th>Description</th><th>Amount</th><th>Status</th></tr></thead></table></div>
+
 </body>
 <script>
     async function empWelcome(){
@@ -18,5 +35,43 @@
         document.getElementById("empwelcome").innerHTML = body
     }
     empWelcome()
+
+    async function submit(){
+        let reimbursement = {
+            rebursId:0,
+            status:"pending"
+        }
+
+        reimbursement.reason = document.getElementById("reason").value
+        reimbursement.amount = Number.parseInt(document.getElementById("amount").value)
+
+        let settings = {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(reimbursement)
+            
+        }
+        
+        // reimbursement.empId = Number.parseInt(document.getElementById("empid"))
+
+        let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/reburs/submit",settings)
+        document.getElementById("reason").value = ""
+        document.getElementById("amount").value = ""
+
+        console.log(httpResponse)
+    }
+
+    async function viewRequests(){
+        
+        let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/reburs/view")
+        let reimbursements = await httpResponse.json()
+        let reburstable = document.getElementById("empRequests")
+
+        for(reimbursement of reimbursements){
+            reburstable.innerHTML = reburstable.innerHTML + `<tr><td>${reimbursement.reason} </td> 
+            <td> ${reimbursement.amount}</td> <td> ${reimbursement.status}</td> <td>
+          </tr>`
+        }   
+    }
 </script>
 </html>

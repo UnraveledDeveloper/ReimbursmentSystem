@@ -22,10 +22,12 @@ public class EmployeeServlet extends HttpServlet {
 	EmployeeDAO edao = new EmployeeDAOmariadb();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		int eid = (int) request.getSession().getAttribute("employeeId");
 		Employee logged = edao.getEmployeeById(eid);
 		response.getWriter().append("Welcome " + logged.getName());
 		System.out.println(logged);
+		System.out.println(eid);
 	}
 
 	

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dev.agboneni.controllers.EmployeeController;
+import dev.agboneni.controllers.ManagerController;
 import dev.agboneni.controllers.ReimbursementController;
 
 /**
@@ -20,6 +22,8 @@ public class DispatcherServlet extends HttpServlet {
     }
     
     ReimbursementController rcontroller = new ReimbursementController();
+    EmployeeController econtroller = new EmployeeController();
+    ManagerController mcontroller = new ManagerController();
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
@@ -34,13 +38,13 @@ public class DispatcherServlet extends HttpServlet {
 			rcontroller.denyRequest(request, response);
 			break;
 		case "/ExpenseReimbursementSystemApp/reburs/view":
-			
+			econtroller.viewRequests(request, response);
 			break;
-		case "":
-			
+		case "/ExpenseReimbursementSystemApp/reburs/viewall":
+			mcontroller.viewRequests(request, response);
 			break;
-		case "/ExpenseReimbursementSystemApp/reburs/m":
-			
+		case "/ExpenseReimbursementSystemApp/reburs/name":
+			mcontroller.viewRequestsByName(request, response);
 			break;
 		default: 
 			response.getWriter().append("Your request uri did not match anything");

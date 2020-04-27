@@ -3,11 +3,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Manager Page</title>
+<link rel="stylesheet" href="CSS/managerpage.css">
 </head>
 <body>
+    <div class="greeting">
     <h2 id="mgrwelcome"></h2>
-    <button id="viewbtn">View Requests</button>
+    <a style="color: firebrick;" href="http://localhost:8080/ExpenseReimbursementSystemApp/">Logout</a>
+    </div>
+    <br>
+    <div class="position">
+    <button onclick="viewAll()" id="viewbtn">View Requests</button>
+    </div>
+    <br>
+    <!-- <button onclick="" id="togDisplay">Show/Hide</button> -->
+    
+    <div id="show"><table id="info"><tr><thead><th>Request ID</th><th>Employee ID</th><th>Amount</th><th>Reason</th><th>Status</th></thead></tr></table></div>
+
 </body>
+
 <script>
      async function managerWelcome(){
         let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/ManagerServlet")
@@ -16,5 +29,63 @@
         document.getElementById("mgrwelcome").innerHTML = body
     }
     managerWelcome()
+
+    async function viewAll(){
+        let httpResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/reburs/viewall")
+        let requests = await httpResponse.json()
+        console.log(requests)
+
+        let display = document.getElementById("info")
+
+        for(request of requests){
+            display.innerHTML = display.innerHTML + `<tr><td id="requestid">${request.rebursId}</td><td id="empid">${request.empId}</td><td id= "empamount">${request.amount}</td><td id= "empreason">${request.reason}</td><td id="empstatus">${request.status}</td>
+            <td><button rId=${request.rebursId} empid=${request.empId}  emplamount=${request.amount} emplreason=${request.reason} empstatus=${request.status} class="decision" onclick="approve(this)">Approve</button></td>
+            <td><button rId=${request.rebursId} empid=${request.empId}  emplamount=${request.amount} emplreason=${request.reason} empstatus=${request.status} class="decision" onclick = "deny(this)">Deny</button></td></tr>`
+
+        }
+
+
+    }
+
+
+    async function approve(element){
+        
+        let reimbursement = {}
+        
+        reimbursement.rebursId = element.getAttribute("rId")
+        reimbursement.empId = element.getAttribute("empid")
+        reimbursement.amount = element.getAttribute("emplamount")
+        reimbursement.reason = element.getAttribute("emplreason")
+        reimbursement.status = element.getAttribute("empstatus")
+        
+        let settings = {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(reimbursement)
+            
+        }
+
+        let httpNextResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/reburs/approve", settings)
+        console.log(httpNextResponse)
+    }
+
+    async function deny(element){
+        let reimbursement = {}
+        reimbursement.rebursId = element.getAttribute("rId")
+        reimbursement.empId = element.getAttribute("empid")
+        reimbursement.amount = element.getAttribute("emplamount")
+        reimbursement.reason = element.getAttribute("emplreason")
+        reimbursement.status = element.getAttribute("empstatus")
+        
+        let settings = {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(reimbursement)
+            
+        }
+
+        let httpNextResponse = await fetch("http://localhost:8080/ExpenseReimbursementSystemApp/reburs/deny", settings)
+        console.log(httpNextResponse)
+    }
 </script>
 </html>

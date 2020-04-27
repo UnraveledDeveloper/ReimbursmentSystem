@@ -18,6 +18,7 @@ public class ReimbursmentServiceImpl implements ReimbursmentService{
 
 	@Override
 	public Reimbursment approveRequest(Reimbursment request) {
+		System.out.println(request);
 		request.setStatus("Approved");
 		rdao.updaReimbursment(request);
 		return request;
