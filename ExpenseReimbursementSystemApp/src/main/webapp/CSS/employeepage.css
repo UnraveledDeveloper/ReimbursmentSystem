@@ -1,0 +1,54 @@
+body{
+    background-image: url("final-fantasy-7.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: scroll;
+}
+.request{
+    position: relative;
+    left: 30%;
+}
+.greeting{
+    text-align: center;
+    color: darkred;
+}
+button{
+    border-radius: 5%;
+    color: whitesmoke;
+    background-color: rgb(3, 149, 118); 
+    width: 20%;
+    padding: 1%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.decision{
+    width: 100%;
+}
+.buttons{
+    position: relative;
+    left: 30%;
+}
+
+#id{
+    margin: auto;
+    width: 40%;
+    left: 50%;
+}
+
+table{
+    position: relative;
+    border: 3px solid firebrick;
+    background-color: black;
+    border-collapse: collapse;
+    left: 40%;
+    top: 20%;
+}
+tr{
+    border: 3px solid firebrick;
+}
+
+th,td{
+    color: firebrick;
+    border: 3px solid darkred;
+    
+}

@@ -1,16 +1,19 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="CSS/welcomepage.css">
+    </head>
 <body>
-<h2>Welcome</h2>
-<form action="LoginServlet">
-<input type="text" id="username" name="username" placeholder="Username">
-<br><br>
-<input type="password" id="password" name="password" placeholder="Password">
-<button id="loginbtn" >Login Test</button>
-</form>
+<h1>Welcome To The Future</h1>
+<div class="logo">
+    <img src="CSS/Shin-ra_logo.jpg" alt="">
+</div>
+<div class="select">
+<button class="emp" onclick="moveToEmpLogin()" id="employeebtn">Employee Login</button>
 <br>
-<button onclick="moveToEmpLogin()" id="employeebtn">Employee Login</button>
-<button onclick="moveToMgrLogin()" id="managerbtn">Manager Login</button>
-
+<div class="managerselect">
+<button class="man" onclick="moveToMgrLogin()" id="managerbtn">Manager Login</button>
+</div>
+</div>
 </body>
 <script>
    function moveToEmpLogin(){
